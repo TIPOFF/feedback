@@ -106,8 +106,8 @@ class FeedbackFactory extends Factory
         }
 
         return [
-            'participant_id'            => randomOrCreate(config('waivers.model_class.participant'), 'participant_id'),
-            'location_id'               => randomOrCreate(config('waivers.model_class.location'), 'location_id'),
+            'participant_id'            => randomOrCreate(config('feedback.model_class.participant'), 'participant_id'),
+            'location_id'               => randomOrCreate(config('feedback.model_class.location'), 'location_id'),
             'date'                      => $this->faker->date(), // Should be a day less than emailed_at
             'emailed_at'                => $this->faker->dateTimeBetween('-3 months', '-1 months'),
             'email_identifier'          => Str::random(100),

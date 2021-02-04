@@ -44,11 +44,11 @@ class Feedback extends BaseModel
 
     public function participant()
     {
-        return $this->belongsTo(config('waivers.model_class.participant'), 'participant_id');
+        return $this->belongsTo(config('feedback.model_class.participant'), 'participant_id');
     }
 
     public function location()
     {
-        return $this->belongsTo(config('waivers.model_class.location'), 'location_id');
+        return $this->belongsTo(config('feedback.model_class.location'), 'location_id');
     }
 }
