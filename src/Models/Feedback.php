@@ -4,7 +4,6 @@ namespace Tipoff\Feedback\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Tipoff\Support\Models\BaseModel;
 
 class Feedback extends Model
 {
