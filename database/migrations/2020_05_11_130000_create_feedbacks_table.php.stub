@@ -9,10 +9,10 @@ class CreateFeedbacksTable extends Migration
     public function up()
     {
         Schema::create('feedbacks', function (Blueprint $table) {
-            $participantModel = config('feedback.model_class.participant');
+            $participantModel = config('tipoff.model_class.participant');
             $participantTable = (new $participantModel)->getTable();
 
-            $locationModel = config('feedback.model_class.location');
+            $locationModel = config('tipoff.model_class.location');
             $locationTable = (new $locationModel)->getTable();
 
             $table->id();

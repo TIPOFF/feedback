@@ -1,6 +1,4 @@
-<?php
-
-namespace Database\Factories;
+<?php namespace Tipoff\Feedback\Database\Factories;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -106,8 +104,8 @@ class FeedbackFactory extends Factory
         }
 
         return [
-            'participant_id'            => randomOrCreate(config('feedback.model_class.participant'), 'participant_id'),
-            'location_id'               => randomOrCreate(config('feedback.model_class.location'), 'location_id'),
+            'participant_id'            => randomOrCreate(config('tipoff.model_class.participant')),
+            'location_id'               => randomOrCreate(config('tipoff.model_class.location')),
             'date'                      => $this->faker->date(), // Should be a day less than emailed_at
             'emailed_at'                => $this->faker->dateTimeBetween('-3 months', '-1 months'),
             'email_identifier'          => Str::random(100),
