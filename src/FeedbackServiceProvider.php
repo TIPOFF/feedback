@@ -5,6 +5,7 @@ namespace Tipoff\Feedback;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Tipoff\Feedback\Commands\FeedbackCommand;
+use Illuminate\Support\Str;
 
 class FeedbackServiceProvider extends PackageServiceProvider
 {
