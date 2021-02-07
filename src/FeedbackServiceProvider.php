@@ -2,6 +2,7 @@
 
 namespace Tipoff\Feedback;
 
+use Illuminate\Support\Str;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Tipoff\Feedback\Commands\FeedbackCommand;
