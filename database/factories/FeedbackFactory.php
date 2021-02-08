@@ -104,8 +104,8 @@ class FeedbackFactory extends Factory
         }
 
         return [
-            'participant_id'            => randomOrCreate(config('tipoff.model_class.participant')),
-            'location_id'               => randomOrCreate(config('tipoff.model_class.location')),
+            'participant_id'            => randomOrCreate(app('participant')),
+            'location_id'               => randomOrCreate(app('location')),
             'date'                      => $this->faker->date(), // Should be a day less than emailed_at
             'emailed_at'                => $this->faker->dateTimeBetween('-3 months', '-1 months'),
             'email_identifier'          => Str::random(100),
