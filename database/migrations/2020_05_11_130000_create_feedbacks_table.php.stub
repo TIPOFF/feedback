@@ -9,16 +9,10 @@ class CreateFeedbacksTable extends Migration
     public function up()
     {
         Schema::create('feedbacks', function (Blueprint $table) {
-            $participantModel = config('tipoff.model_class.participant');
-            $participantTable = (new $participantModel)->getTable();
-
-            $locationModel = config('tipoff.model_class.location');
-            $locationTable = (new $locationModel)->getTable();
-
             $table->id();
             $table->string('token')->index()->unique(); // unique hash for the feedback so can use in links instead of the id
-            $table->foreignId('participant_id')->index()->references('id')->on($participantTable);
-            $table->foreignId('location_id')->index()->references('id')->on($locationTable);
+            $table->foreignIdFor(app('participant'), 'participant_id')->index();
+            $table->foreignIdFor(app('location'), 'location_id')->index();
             $table->date('date')->index(); // date the escape room game was played
             $table->dateTime('emailed_at')->nullable();
             $table->string('email_identifier')->nullable()->unique(); // "MessageID" from Postmark or email service needed to track opens since multiple feedbacks could exist and can't track opens to the participant
