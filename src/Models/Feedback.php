@@ -44,11 +44,11 @@ class Feedback extends BaseModel
 
     public function participant()
     {
-        return $this->belongsTo(config('tipoff.model_class.participant'), 'participant_id');
+        return $this->belongsTo(app('participant'), 'participant_id');
     }
 
     public function location()
     {
-        return $this->belongsTo(config('tipoff.model_class.location'), 'location_id');
+        return $this->belongsTo(app('location'), 'location_id');
     }
 }
