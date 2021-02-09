@@ -11,8 +11,8 @@ class CreateFeedbacksTable extends Migration
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
             $table->string('token')->index()->unique(); // unique hash for the feedback so can use in links instead of the id
-            $table->foreignIdFor(app('participant'), 'participant_id')->index();
-            $table->foreignIdFor(app('location'), 'location_id')->index();
+            $table->foreignIdFor(app('participant'))->index();
+            $table->foreignIdFor(app('location'))->index();
             $table->date('date')->index(); // date the escape room game was played
             $table->dateTime('emailed_at')->nullable();
             $table->string('email_identifier')->nullable()->unique(); // "MessageID" from Postmark or email service needed to track opens since multiple feedbacks could exist and can't track opens to the participant
@@ -28,10 +28,5 @@ class CreateFeedbacksTable extends Migration
             $table->softDeletes(); // Soft delete if email bounces. Also need to soft delete the Participant & update the waiver signature.
             $table->timestamps();
         });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('feedbacks');
     }
 }
