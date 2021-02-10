@@ -2,9 +2,9 @@
 
 namespace Tipoff\Feedback\Policies;
 
-use Tipoff\Feedback\Models\Feedback;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Tipoff\Feedback\Models\Feedback;
 
 class FeedbackPolicy
 {
