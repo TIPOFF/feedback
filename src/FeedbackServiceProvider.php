@@ -1,9 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tipoff\Feedback;
 
+use Illuminate\Support\Facades\Gate;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Tipoff\Feedback\Models\Feedback;
+use Tipoff\Feedback\Policies\FeedbackPolicy;
 
 class FeedbackServiceProvider extends PackageServiceProvider
 {
@@ -25,5 +30,10 @@ class FeedbackServiceProvider extends PackageServiceProvider
             ->name('feedback')
             ->hasConfigFile()
             ->hasViews();
+    }
+
+    public function registeringPackage()
+    {
+        Gate::policy(Feedback::class, FeedbackPolicy::class);
     }
 }
