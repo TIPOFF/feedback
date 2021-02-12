@@ -11,8 +11,6 @@ class Feedback extends BaseModel
     use HasPackageFactory;
     use SoftDeletes;
 
-    protected $guarded = ['id'];
-
     protected $casts = [
         'emailed_at' => 'datetime',
         'opened_at' => 'datetime',
