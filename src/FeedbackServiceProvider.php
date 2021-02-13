@@ -1,29 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tipoff\Feedback;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Tipoff\Feedback\Models\Feedback;
+use Tipoff\Feedback\Policies\FeedbackPolicy;
+use Tipoff\Support\TipoffPackage;
+use Tipoff\Support\TipoffServiceProvider;
 
-class FeedbackServiceProvider extends PackageServiceProvider
+class FeedbackServiceProvider extends TipoffServiceProvider
 {
-    public function boot()
+    public function configureTipoffPackage(TipoffPackage $package): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-
-        parent::boot();
-    }
-
-    public function configurePackage(Package $package): void
-    {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
+            ->hasPolicies([
+                Feedback::class => FeedbackPolicy::class,
+            ])
             ->name('feedback')
-            ->hasConfigFile()
-            ->hasViews();
+            ->hasConfigFile();
     }
 }
