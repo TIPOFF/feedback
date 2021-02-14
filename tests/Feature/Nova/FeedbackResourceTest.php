@@ -20,7 +20,7 @@ class FeedbackResourceTest extends TestCase
 
         $this->actingAs(User::factory()->create());
 
-        $response = $this->getJson('nova-api/feedbacks')
+        $response = $this->getJson('nova-api/feedback')
             ->assertOk();
 
         $this->assertCount(4, $response->json('resources'));
