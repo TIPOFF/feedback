@@ -159,6 +159,9 @@ class Feedback extends Resource
 
     public function filters(Request $request)
     {
+        return [
+
+        ];
     }
 
     public function lenses(Request $request)
