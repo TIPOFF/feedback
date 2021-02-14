@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
+use Tipoff\Support\Nova\Resource;
 
 class Feedback extends Resource
 {
