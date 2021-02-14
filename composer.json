@@ -45,10 +45,7 @@
         "laravel": {
             "providers": [
                 "Tipoff\\Feedback\\FeedbackServiceProvider"
-            ],
-            "aliases": {
-                "Feedback": "Tipoff\\Feedback\\FeedbackFacade"
-            }
+            ]
         }
     },
     "repositories": [
