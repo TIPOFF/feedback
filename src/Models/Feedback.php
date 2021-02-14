@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tipoff\Feedback\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
