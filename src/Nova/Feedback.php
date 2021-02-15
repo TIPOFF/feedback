@@ -48,8 +48,8 @@ class Feedback extends Resource
         return [
             ID::make()->sortable(),
             Date::make('Date Played', 'date')->sortable(),
-            BelongsTo::make('Participant', 'participant', app()->getAlias('nova.participant'))->sortable(),
-            BelongsTo::make('Location', 'location', app()->getAlias('nova.location'))->sortable(),
+            BelongsTo::make('Participant', 'participant', nova('participant'))->sortable(),
+            BelongsTo::make('Location', 'location', nova('location'))->sortable(),
             Badge::make('Response', function () {
                 if (empty($this->emailed_at)) {
                     return 'Queued';
@@ -86,8 +86,8 @@ class Feedback extends Resource
     {
         return [
             Date::make('Date Played', 'date'),
-            BelongsTo::make('Participant', 'participant', app()->getAlias('nova.participant')),
-            BelongsTo::make('Location', 'location', app()->getAlias('nova.location')),
+            BelongsTo::make('Participant', 'participant', nova('participant')),
+            BelongsTo::make('Location', 'location', nova('location')),
             DateTime::make('Request Emailed', 'emailed_at'),
             Badge::make('Response', function () {
                 if (empty($this->emailed_at)) {
