@@ -14,9 +14,9 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
-use Tipoff\Support\Nova\Resource;
+use Tipoff\Support\Nova\BaseResource;
 
-class Feedback extends Resource
+class Feedback extends BaseResource
 {
     public static $model = \Tipoff\Feedback\Models\Feedback::class;
 
@@ -45,11 +45,11 @@ class Feedback extends Resource
 
     public function fieldsForIndex(NovaRequest $request)
     {
-        return [
+        return array_filter([
             ID::make()->sortable(),
             Date::make('Date Played', 'date')->sortable(),
-            BelongsTo::make('Participant', 'participant', nova('participant'))->sortable(),
-            BelongsTo::make('Location', 'location', nova('location'))->sortable(),
+            nova('participant') ? BelongsTo::make('Participant', 'participant', nova('participant'))->sortable() : null,
+            nova('location') ? BelongsTo::make('Location', 'location', nova('location'))->sortable() : null,
             Badge::make('Response', function () {
                 if (empty($this->emailed_at)) {
                     return 'Queued';
@@ -79,15 +79,15 @@ class Feedback extends Resource
                 'Queued' => 'warning',
                 'Waiting' => 'info',
             ]),
-        ];
+        ]);
     }
 
     public function fields(Request $request)
     {
-        return [
+        return array_filter([
             Date::make('Date Played', 'date'),
-            BelongsTo::make('Participant', 'participant', nova('participant')),
-            BelongsTo::make('Location', 'location', nova('location')),
+            nova('participant') ? BelongsTo::make('Participant', 'participant', nova('participant')) : null,
+            nova('location') ? BelongsTo::make('Location', 'location', nova('location')) : null,
             DateTime::make('Request Emailed', 'emailed_at'),
             Badge::make('Response', function () {
                 if (empty($this->emailed_at)) {
@@ -123,7 +123,7 @@ class Feedback extends Resource
 
             new Panel('Request Details', $this->infoFields()),
 
-        ];
+        ]);
     }
 
     protected function responseFields()
@@ -150,27 +150,5 @@ class Feedback extends Resource
             DateTime::make('Created At'),
             DateTime::make('Updated At'),
         ];
-    }
-
-    public function cards(Request $request)
-    {
-        return [];
-    }
-
-    public function filters(Request $request)
-    {
-        return [
-
-        ];
-    }
-
-    public function lenses(Request $request)
-    {
-        return [];
-    }
-
-    public function actions(Request $request)
-    {
-        return [];
     }
 }
