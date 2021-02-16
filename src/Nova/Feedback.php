@@ -72,12 +72,12 @@ class Feedback extends BaseResource
 
                 return 'Waiting';
             })->map([
-                'Negative'      => 'danger',
+                'Negative' => 'danger',
                 'Semi-Negative' => 'danger',
                 'Semi-Positive' => 'success',
-                'Positive'      => 'success',
-                'Queued'        => 'warning',
-                'Waiting'       => 'info',
+                'Positive' => 'success',
+                'Queued' => 'warning',
+                'Waiting' => 'info',
             ]),
         ]);
     }
@@ -111,12 +111,12 @@ class Feedback extends BaseResource
 
                 return 'Waiting';
             })->map([
-                'Negative'      => 'danger',
+                'Negative' => 'danger',
                 'Semi-Negative' => 'danger',
                 'Semi-Positive' => 'success',
-                'Positive'      => 'success',
-                'Queued'        => 'warning',
-                'Waiting'       => 'info',
+                'Positive' => 'success',
+                'Queued' => 'warning',
+                'Waiting' => 'info',
             ]),
 
             new Panel('Feedback Response', $this->responseFields()),
