@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace Tipoff\Feedback\Mail;
 
-use Tipoff\Feedback\Models\Feedback;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Tipoff\Feedback\Models\Feedback;
 
 class FeedbackRequest extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     public $feedback;
 

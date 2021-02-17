@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Tipoff\Feedback\Commands;
 
-use Tipoff\Feedback\Mail\FeedbackSummary;
-use Tipoff\Locations\Models\Location;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
+use Tipoff\Feedback\Mail\FeedbackSummary;
+use Tipoff\Locations\Models\Location;
 
 class SendFeedbackSummaryEmails extends Command
 {

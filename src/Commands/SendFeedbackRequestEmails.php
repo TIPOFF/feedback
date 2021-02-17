@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Tipoff\Feedback\Commands;
 
-use Tipoff\Feedback\Mail\FeedbackRequest;
-use Tipoff\Feedback\Models\Feedback;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
+use Tipoff\Feedback\Mail\FeedbackRequest;
+use Tipoff\Feedback\Models\Feedback;
 
 class SendFeedbackRequestEmails extends Command
 {

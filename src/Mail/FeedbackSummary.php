@@ -11,7 +11,8 @@ use Tipoff\Locations\Models\Location;
 
 class FeedbackSummary extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     public $location;
 

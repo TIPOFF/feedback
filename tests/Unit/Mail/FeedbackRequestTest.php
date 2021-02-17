@@ -15,6 +15,7 @@ class FeedbackRequestTest extends TestCase
     use DatabaseTransactions;
 
     //Todo: Need to figure out how to test markdown content
+
     /** @test */
     public function email()
     {
@@ -25,6 +26,7 @@ class FeedbackRequestTest extends TestCase
         Mail::send(new FeedbackRequest($feedback));
         Mail::assertSent(function (FeedbackRequest $mail) use ($feedback) {
             $mail->build();
+
             return $mail->feedback->id === $feedback->id &&
                 $mail->hasFrom($feedback->location->contact_email, $feedback->location->title) &&
                 $mail->hasTo($feedback->participant->email) &&

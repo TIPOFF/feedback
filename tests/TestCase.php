@@ -26,7 +26,7 @@ class TestCase extends BaseTestCase
             PermissionServiceProvider::class,
             FeedbackServiceProvider::class,
             LocationsServiceProvider::class,
-            EscapeRoomServiceProvider::class
+            EscapeRoomServiceProvider::class,
         ];
     }
 }
