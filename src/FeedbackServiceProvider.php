@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tipoff\Feedback;
 
+use Tipoff\Feedback\Commands\SendFeedbackRequestEmails;
+use Tipoff\Feedback\Commands\SendFeedbackSummaryEmails;
 use Tipoff\Feedback\Models\Feedback;
 use Tipoff\Feedback\Policies\FeedbackPolicy;
 use Tipoff\Support\TipoffPackage;
@@ -17,7 +19,12 @@ class FeedbackServiceProvider extends TipoffServiceProvider
             ->hasPolicies([
                 Feedback::class => FeedbackPolicy::class,
             ])
+            ->hasCommands([
+                SendFeedbackRequestEmails::class,
+                SendFeedbackSummaryEmails::class,
+            ])
             ->name('feedback')
+            ->hasViews()
             ->hasConfigFile();
     }
 }

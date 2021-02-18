@@ -5,6 +5,8 @@ declare(strict_types=1);
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Tipoff\EscapeRoom\Models\Participant;
+use Tipoff\Locations\Models\Location;
 
 class CreateFeedbacksTable extends Migration
 {
@@ -13,8 +15,8 @@ class CreateFeedbacksTable extends Migration
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
             $table->string('token')->index()->unique(); // unique hash for the feedback so can use in links instead of the id
-            $table->foreignIdFor(app('participant'))->index();
-            $table->foreignIdFor(app('location'))->index();
+            $table->foreignIdFor(Participant::class)->index();
+            $table->foreignIdFor(Location::class)->index();
             $table->date('date')->index(); // date the escape room game was played
             $table->dateTime('emailed_at')->nullable();
             $table->string('email_identifier')->nullable()->unique(); // "MessageID" from Postmark or email service needed to track opens since multiple feedbacks could exist and can't track opens to the participant

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Tipoff\Feedback\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Tipoff\EscapeRoom\Models\Participant;
+use Tipoff\Locations\Models\Location;
 use Tipoff\Support\Models\BaseModel;
 use Tipoff\Support\Traits\HasPackageFactory;
 
@@ -46,11 +48,11 @@ class Feedback extends BaseModel
 
     public function participant()
     {
-        return $this->belongsTo(app('participant'), 'participant_id');
+        return $this->belongsTo(Participant::class);
     }
 
     public function location()
     {
-        return $this->belongsTo(app('location'), 'location_id');
+        return $this->belongsTo(Location::class);
     }
 }
