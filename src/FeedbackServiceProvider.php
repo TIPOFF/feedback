@@ -23,6 +23,9 @@ class FeedbackServiceProvider extends TipoffServiceProvider
                 SendFeedbackRequestEmails::class,
                 SendFeedbackSummaryEmails::class,
             ])
+            ->hasNovaResources([
+                \Tipoff\Feedback\Nova\Feedback::class,
+            ])
             ->name('feedback')
             ->hasViews()
             ->hasConfigFile();
