@@ -43,7 +43,7 @@ class PullOpens extends Command
     public function handle()
     {
         $response = Http::withHeaders([
-            'X-Postmark-Server-Token' => 'fe9119f1-d554-4dcb-9cd9-cc831217007d',
+            'X-Postmark-Server-Token' => config('feedback.post-mark-token'),
             'Accept' => 'application/json',
         ])->get('https://api.postmarkapp.com/messages/outbound/opens?tag=feedback&count=500&offset=0');
         $data = $response->json();
