@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Tipoff\Feedback\Commands;
 
-use Tipoff\Feedback\Models\Feedback;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
+use Tipoff\Feedback\Models\Feedback;
 
 class PullOpens extends Command
 {
