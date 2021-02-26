@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Tipoff\Feedback\Http\Controllers\Web;
 
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Tipoff\Feedback\Http\Requests\Web\Feedback\UpdateFeedbackRequest;
 use Tipoff\Feedback\Models\Feedback;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {
