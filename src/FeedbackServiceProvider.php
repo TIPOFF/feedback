@@ -23,7 +23,7 @@ class FeedbackServiceProvider extends TipoffServiceProvider
             ->hasCommands([
                 SendFeedbackRequestEmails::class,
                 SendFeedbackSummaryEmails::class,
-                PullOpens::class
+                PullOpens::class,
             ])
             ->hasNovaResources([
                 \Tipoff\Feedback\Nova\Feedback::class,
