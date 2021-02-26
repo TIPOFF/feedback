@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tipoff\Feedback;
 
+use Tipoff\Feedback\Commands\PullOpens;
 use Tipoff\Feedback\Commands\SendFeedbackRequestEmails;
 use Tipoff\Feedback\Commands\SendFeedbackSummaryEmails;
 use Tipoff\Feedback\Models\Feedback;
@@ -22,6 +23,7 @@ class FeedbackServiceProvider extends TipoffServiceProvider
             ->hasCommands([
                 SendFeedbackRequestEmails::class,
                 SendFeedbackSummaryEmails::class,
+                PullOpens::class
             ])
             ->hasNovaResources([
                 \Tipoff\Feedback\Nova\Feedback::class,
