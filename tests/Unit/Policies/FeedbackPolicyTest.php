@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tipoff\Feedback\Tests\Unit\Models;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Tipoff\EscapeRoom\Models\Feedback;
+use Tipoff\Feedback\Models\Feedback;
 use Tipoff\Feedback\Tests\TestCase;
 use Tipoff\Support\Contracts\Models\UserInterface;
 
