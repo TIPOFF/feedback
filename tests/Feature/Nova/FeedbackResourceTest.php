@@ -18,7 +18,7 @@ class FeedbackResourceTest extends TestCase
     {
         Feedback::factory()->count(4)->create();
 
-        $this->actingAs(User::factory()->create());
+        $this->actingAs(self::createPermissionedUser('view feedbacks', true));
 
         $response = $this->getJson('nova-api/feedback')
             ->assertOk();
