@@ -6,9 +6,7 @@ namespace Tipoff\Feedback\Database\Factories;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Tipoff\EscapeRoom\Models\Participant;
 use Tipoff\Feedback\Models\Feedback;
-use Tipoff\Locations\Models\Location;
 
 class FeedbackFactory extends Factory
 {
@@ -110,8 +108,8 @@ class FeedbackFactory extends Factory
         }
 
         return [
-            'participant_id'            => randomOrCreate(Participant::class),
-            'location_id'               => randomOrCreate(Location::class),
+            'participant_id'            => randomOrCreate(app('participant')),
+            'location_id'               => randomOrCreate(app('location')),
             'date'                      => $this->faker->date(), // Should be a day less than emailed_at
             'emailed_at'                => $this->faker->dateTimeBetween('-3 months', '-1 months'),
             'email_identifier'          => Str::random(100),
