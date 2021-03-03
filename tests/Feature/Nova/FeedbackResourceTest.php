@@ -7,7 +7,6 @@ namespace Tipoff\Feedback\Tests\Feature\Nova;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tipoff\Feedback\Models\Feedback;
 use Tipoff\Feedback\Tests\TestCase;
-use Tipoff\TestSupport\Models\User;
 
 class FeedbackResourceTest extends TestCase
 {
