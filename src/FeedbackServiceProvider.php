@@ -16,6 +16,7 @@ class FeedbackServiceProvider extends TipoffServiceProvider
 {
     public function configureTipoffPackage(TipoffPackage $package): void
     {
+        /** @psalm-suppress UndefinedMethod **/
         $package
             ->hasPolicies([
                 Feedback::class => FeedbackPolicy::class,
