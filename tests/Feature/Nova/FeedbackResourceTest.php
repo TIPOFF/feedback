@@ -7,7 +7,6 @@ namespace Tipoff\Feedback\Tests\Feature\Nova;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tipoff\Feedback\Models\Feedback;
 use Tipoff\Feedback\Tests\TestCase;
-use Tipoff\TestSupport\Models\User;
 
 class FeedbackResourceTest extends TestCase
 {
@@ -18,7 +17,7 @@ class FeedbackResourceTest extends TestCase
     {
         Feedback::factory()->count(4)->create();
 
-        $this->actingAs(User::factory()->create());
+        $this->actingAs(self::createPermissionedUser('view feedbacks', true));
 
         $response = $this->getJson('nova-api/feedback')
             ->assertOk();
