@@ -9,7 +9,7 @@ class AddFeedbackPermissions extends BasePermissionsMigration
     public function up()
     {
         $permissions = [
-            'view feedback'
+            'view feedback' => ['Owner', 'Staff']
         ];
 
         $this->createPermissions($permissions);
