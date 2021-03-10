@@ -6,6 +6,7 @@ namespace Tipoff\Feedback\Tests;
 
 use Laravel\Nova\NovaCoreServiceProvider;
 use Spatie\Permission\PermissionServiceProvider;
+use Tipoff\Addresses\AddressesServiceProvider;
 use Tipoff\Authorization\AuthorizationServiceProvider;
 use Tipoff\Bookings\BookingsServiceProvider;
 use Tipoff\Feedback\FeedbackServiceProvider;
@@ -13,7 +14,6 @@ use Tipoff\Feedback\Tests\Support\Providers\NovaPackageServiceProvider;
 use Tipoff\Locations\LocationsServiceProvider;
 use Tipoff\Support\SupportServiceProvider;
 use Tipoff\TestSupport\BaseTestCase;
-use Tipoff\Addresses\AddressesServiceProvider;
 
 class TestCase extends BaseTestCase
 {
