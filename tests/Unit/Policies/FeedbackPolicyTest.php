@@ -40,7 +40,7 @@ class FeedbackPolicyTest extends TestCase
     {
         return [
             'view-true' => [ 'view', self::createPermissionedUser('view feedbacks', true), true ],
-            'view-false' => [ 'view', self::createPermissionedUser('view feedbacks', false), false ]
+            'view-false' => [ 'view', self::createPermissionedUser('view feedbacks', false), false ],
         ];
     }
 
