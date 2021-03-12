@@ -12,6 +12,7 @@ use Tipoff\Bookings\BookingsServiceProvider;
 use Tipoff\Feedback\FeedbackServiceProvider;
 use Tipoff\Feedback\Tests\Support\Providers\NovaPackageServiceProvider;
 use Tipoff\Locations\LocationsServiceProvider;
+use Tipoff\Statuses\StatusesServiceProvider;
 use Tipoff\Support\SupportServiceProvider;
 use Tipoff\TestSupport\BaseTestCase;
 
@@ -27,6 +28,7 @@ class TestCase extends BaseTestCase
             PermissionServiceProvider::class,
             AddressesServiceProvider::class,
             LocationsServiceProvider::class,
+            StatusesServiceProvider::class,
             BookingsServiceProvider::class,
             FeedbackServiceProvider::class,
         ];
