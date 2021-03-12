@@ -29,6 +29,7 @@ class FeedbackRequestTest extends TestCase
 
             return $mail->feedback->id === $feedback->id &&
                 $mail->hasFrom($feedback->location->contact_email, $feedback->location->title) &&
+                //Todo: require Bookings
                 $mail->hasTo($feedback->participant->email) &&
                 $mail->hasBcc('digitalmgr@thegreatescaperoom.com');
         });

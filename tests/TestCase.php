@@ -6,11 +6,13 @@ namespace Tipoff\Feedback\Tests;
 
 use Laravel\Nova\NovaCoreServiceProvider;
 use Spatie\Permission\PermissionServiceProvider;
+use Tipoff\Addresses\AddressesServiceProvider;
 use Tipoff\Authorization\AuthorizationServiceProvider;
 use Tipoff\Bookings\BookingsServiceProvider;
 use Tipoff\Feedback\FeedbackServiceProvider;
 use Tipoff\Feedback\Tests\Support\Providers\NovaPackageServiceProvider;
 use Tipoff\Locations\LocationsServiceProvider;
+use Tipoff\Statuses\StatusesServiceProvider;
 use Tipoff\Support\SupportServiceProvider;
 use Tipoff\TestSupport\BaseTestCase;
 
@@ -24,9 +26,11 @@ class TestCase extends BaseTestCase
             SupportServiceProvider::class,
             AuthorizationServiceProvider::class,
             PermissionServiceProvider::class,
-            FeedbackServiceProvider::class,
+            AddressesServiceProvider::class,
             LocationsServiceProvider::class,
+            StatusesServiceProvider::class,
             BookingsServiceProvider::class,
+            FeedbackServiceProvider::class,
         ];
     }
 }
