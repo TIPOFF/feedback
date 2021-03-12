@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tipoff\Feedback\Tests\Unit\Models;
+namespace Tipoff\Feedback\Tests\Unit\Policies;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tipoff\Feedback\Models\Feedback;
@@ -41,12 +41,6 @@ class FeedbackPolicyTest extends TestCase
         return [
             'view-true' => [ 'view', self::createPermissionedUser('view feedbacks', true), true ],
             'view-false' => [ 'view', self::createPermissionedUser('view feedbacks', false), false ],
-            'create-true' => [ 'create', self::createPermissionedUser('create feedbacks', true), true ],
-            'create-false' => [ 'create', self::createPermissionedUser('create feedbacks', false), false ],
-            'update-true' => [ 'update', self::createPermissionedUser('update feedbacks', true), true ],
-            'update-false' => [ 'update', self::createPermissionedUser('update feedbacks', false), false ],
-            'delete-true' => [ 'delete', self::createPermissionedUser('delete feedbacks', true), false ],
-            'delete-false' => [ 'delete', self::createPermissionedUser('delete feedbacks', false), false ],
         ];
     }
 
