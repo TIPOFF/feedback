@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "tipoff/authorization": "^2.5.5",
+        "tipoff/authorization": "^2.6.2",
         "tipoff/bookings": "^2.2.1",
         "tipoff/escape-room": "^2.2.2",
         "tipoff/locations": "^2.7.1",
