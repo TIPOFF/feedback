@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tipoff\Feedback\Models\Feedback;
 use Tipoff\Feedback\Tests\TestCase;
 use Tipoff\Support\Contracts\Models\UserInterface;
+use Tipoff\Authorization\Models\User;
 
 class FeedbackPolicyTest extends TestCase
 {
@@ -29,9 +30,10 @@ class FeedbackPolicyTest extends TestCase
      */
     public function all_permissions_as_creator(string $permission, UserInterface $user, bool $expected)
     {
-        $feedback = Feedback::factory()->make([
-            'creator_id' => $user,
-        ]);
+
+        $this->actingAs(User::factory()->create());
+
+        $feedback = Feedback::factory()->make();
 
         $this->assertEquals($expected, $user->can($permission, $feedback));
     }
@@ -50,6 +52,7 @@ class FeedbackPolicyTest extends TestCase
      */
     public function all_permissions_not_creator(string $permission, UserInterface $user, bool $expected)
     {
+        $this->actingAs(User::factory()->create());
         $feedback = Feedback::factory()->make();
 
         $this->assertEquals($expected, $user->can($permission, $feedback));

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use Tipoff\Feedback\Mail\FeedbackSummary;
 use Tipoff\Feedback\Tests\TestCase;
 use Tipoff\Locations\Models\Location;
+use Tipoff\Authorization\Models\User;
 
 class FeedbackSummaryTest extends TestCase
 {
@@ -19,6 +20,7 @@ class FeedbackSummaryTest extends TestCase
     /** @test */
     public function email()
     {
+        $this->actingAs(User::factory()->create());
         Mail::fake();
         Mail::assertNothingSent();
 
