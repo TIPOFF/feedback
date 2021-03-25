@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tipoff\Feedback\Tests\Unit\Models;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tipoff\Authorization\Models\User;
 use Tipoff\Feedback\Models\Feedback;
 use Tipoff\Feedback\Tests\TestCase;
-use Tipoff\Authorization\Models\User;
 
 class FeedbackModelTest extends TestCase
 {

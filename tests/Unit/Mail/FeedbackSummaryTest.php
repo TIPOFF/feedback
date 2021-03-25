@@ -6,10 +6,10 @@ namespace Tipoff\Feedback\Tests\Unit\Mail;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Mail;
+use Tipoff\Authorization\Models\User;
 use Tipoff\Feedback\Mail\FeedbackSummary;
 use Tipoff\Feedback\Tests\TestCase;
 use Tipoff\Locations\Models\Location;
-use Tipoff\Authorization\Models\User;
 
 class FeedbackSummaryTest extends TestCase
 {
