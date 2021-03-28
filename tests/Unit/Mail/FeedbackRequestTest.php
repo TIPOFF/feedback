@@ -6,6 +6,7 @@ namespace Tipoff\Feedback\Tests\Unit\Mail;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Mail;
+use Tipoff\Authorization\Models\User;
 use Tipoff\Feedback\Mail\FeedbackRequest;
 use Tipoff\Feedback\Models\Feedback;
 use Tipoff\Feedback\Tests\TestCase;
@@ -19,6 +20,7 @@ class FeedbackRequestTest extends TestCase
     /** @test */
     public function email()
     {
+        $this->actingAs(User::factory()->create());
         Mail::fake();
         Mail::assertNothingSent();
 
