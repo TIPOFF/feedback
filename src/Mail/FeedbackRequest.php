@@ -46,8 +46,8 @@ class FeedbackRequest extends Mailable
         });
 
         return $this->markdown('feedback::emails.request')
-            ->from($feedback->location->contact_email, $feedback->location->title)
-            ->to($feedback->participant->email)
+            ->from($feedback->location->email->email, $feedback->location->title)
+            ->to($feedback->participant->email->email)
             ->bcc('digitalmgr@thegreatescaperoom.com')
             ->subject('How was your experience on ' . Carbon::parse($feedback->date)->format('M j') . '?')
             ->with([
