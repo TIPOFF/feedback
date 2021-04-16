@@ -15,6 +15,7 @@ use Tipoff\Bookings\BookingsServiceProvider;
 use Tipoff\EscapeRoom\EscapeRoomServiceProvider;
 use Tipoff\Feedback\FeedbackServiceProvider;
 use Tipoff\Locations\LocationsServiceProvider;
+use Tipoff\Scheduler\SchedulerServiceProvider;
 use Tipoff\Seo\SeoServiceProvider;
 use Tipoff\Statuses\StatusesServiceProvider;
 use Tipoff\Support\SupportServiceProvider;
@@ -37,9 +38,10 @@ class TestCase extends BaseTestCase
             SeoServiceProvider::class,
             BlogServiceProvider::class,
             LocationsServiceProvider::class,
+            EscapeRoomServiceProvider::class,
             StatusesServiceProvider::class,
             BookingsServiceProvider::class,
-            EscapeRoomServiceProvider::class,
+            SchedulerServiceProvider::class,
             FeedbackServiceProvider::class,
         ];
     }
