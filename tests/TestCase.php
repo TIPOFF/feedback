@@ -4,17 +4,23 @@ declare(strict_types=1);
 
 namespace Tipoff\Feedback\Tests;
 
+use DrewRoberts\Blog\BlogServiceProvider;
+use DrewRoberts\Media\MediaServiceProvider;
 use Laravel\Nova\NovaCoreServiceProvider;
+use Livewire\LivewireServiceProvider;
 use Spatie\Permission\PermissionServiceProvider;
 use Tipoff\Addresses\AddressesServiceProvider;
 use Tipoff\Authorization\AuthorizationServiceProvider;
 use Tipoff\Bookings\BookingsServiceProvider;
+use Tipoff\EscapeRoom\EscapeRoomServiceProvider;
 use Tipoff\Feedback\FeedbackServiceProvider;
-use Tipoff\Feedback\Tests\Support\Providers\NovaPackageServiceProvider;
 use Tipoff\Locations\LocationsServiceProvider;
+use Tipoff\Scheduler\SchedulerServiceProvider;
+use Tipoff\Seo\SeoServiceProvider;
 use Tipoff\Statuses\StatusesServiceProvider;
 use Tipoff\Support\SupportServiceProvider;
 use Tipoff\TestSupport\BaseTestCase;
+use Tipoff\TestSupport\Providers\NovaPackageServiceProvider;
 
 class TestCase extends BaseTestCase
 {
@@ -24,12 +30,18 @@ class TestCase extends BaseTestCase
             NovaCoreServiceProvider::class,
             NovaPackageServiceProvider::class,
             SupportServiceProvider::class,
-            AuthorizationServiceProvider::class,
             PermissionServiceProvider::class,
+            AuthorizationServiceProvider::class,
+            LivewireServiceProvider::class,
             AddressesServiceProvider::class,
+            MediaServiceProvider::class,
+            SeoServiceProvider::class,
+            BlogServiceProvider::class,
             LocationsServiceProvider::class,
+            EscapeRoomServiceProvider::class,
             StatusesServiceProvider::class,
             BookingsServiceProvider::class,
+            SchedulerServiceProvider::class,
             FeedbackServiceProvider::class,
         ];
     }

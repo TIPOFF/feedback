@@ -30,9 +30,9 @@ class FeedbackRequestTest extends TestCase
             $mail->build();
 
             return $mail->feedback->id === $feedback->id &&
-                $mail->hasFrom($feedback->location->contact_email, $feedback->location->title) &&
+                $mail->hasFrom($feedback->location->email->email, $feedback->location->title) &&
                 //Todo: require Bookings
-                $mail->hasTo($feedback->participant->email) &&
+                $mail->hasTo($feedback->participant->email->email) &&
                 $mail->hasBcc('digitalmgr@thegreatescaperoom.com');
         });
     }
