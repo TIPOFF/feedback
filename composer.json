@@ -16,11 +16,11 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "tipoff/authorization": "^2.8.5",
-        "tipoff/bookings": "^2.5.2",
+        "tipoff/authorization": "dev-pdbreen/feature/waiver-57 as 2.8.5",
+        "tipoff/bookings": "dev-pdbreen/feature/waivers-57 as 2.5.2",
+        "tipoff/locations": "dev-pdbreen/feature/waivers-57 as 2.10.1",
         "tipoff/scheduler": "^2.0.0",
-        "tipoff/locations": "^2.10.1",
-        "tipoff/support": "^2.1.3"
+        "tipoff/support": "^2.1.4"
     },
     "require-dev": {
         "tipoff/test-support": "^2.0.0"

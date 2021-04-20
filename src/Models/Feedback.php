@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Tipoff\Feedback\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Tipoff\Support\Contracts\Feedback\FeedbackInterface;
+use Tipoff\Support\Contracts\Waivers\SignatureInterface;
 use Tipoff\Support\Models\BaseModel;
 use Tipoff\Support\Traits\HasPackageFactory;
 
-class Feedback extends BaseModel
+class Feedback extends BaseModel implements FeedbackInterface
 {
     use HasPackageFactory;
     use SoftDeletes;
@@ -52,5 +54,19 @@ class Feedback extends BaseModel
     public function location()
     {
         return $this->belongsTo(app('location'));
+    }
+
+    public static function createFromSignature(SignatureInterface $signature): FeedbackInterface
+    {
+        $attributes = [
+            'participant_id' => $signature->getParticipant()->getId(),
+            'location_id' => $signature->getLocation()->getId(),
+            'date' => $signature->getSignatureDate(),
+        ];
+
+        /** @var Feedback $feedback */
+        $feedback = static::query()->withTrashed()->where($attributes)->first() ?: static::query()->create($attributes);
+
+        return $feedback;
     }
 }
