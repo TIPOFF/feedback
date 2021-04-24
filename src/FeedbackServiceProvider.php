@@ -9,6 +9,7 @@ use Tipoff\Feedback\Commands\SendFeedbackRequestEmails;
 use Tipoff\Feedback\Commands\SendFeedbackSummaryEmails;
 use Tipoff\Feedback\Models\Feedback;
 use Tipoff\Feedback\Policies\FeedbackPolicy;
+use Tipoff\Support\Contracts\Feedback\FeedbackInterface;
 use Tipoff\Support\TipoffPackage;
 use Tipoff\Support\TipoffServiceProvider;
 
@@ -28,6 +29,9 @@ class FeedbackServiceProvider extends TipoffServiceProvider
             ])
             ->hasNovaResources([
                 \Tipoff\Feedback\Nova\Feedback::class,
+            ])
+            ->hasModelInterfaces([
+                FeedbackInterface::class => Feedback::class,
             ])
             ->name('feedback')
             ->hasViews()
