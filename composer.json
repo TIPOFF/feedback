@@ -17,13 +17,13 @@
     "require": {
         "php": "^7.3|^8.0",
         "tipoff/authorization": "^2.8.6",
-        "tipoff/bookings": "dev-pdbreen/feature/waivers-57 as 2.5.2",
-        "tipoff/locations": "^2.11.0",
-        "tipoff/scheduler": "^2.0.0",
-        "tipoff/support": "^2.1.4"
+        "tipoff/bookings": "^2.5.4",
+        "tipoff/locations": "^2.12.0",
+        "tipoff/scheduler": "^2.0.1",
+        "tipoff/support": "^2.1.5"
     },
     "require-dev": {
-        "tipoff/test-support": "^2.0.0"
+        "tipoff/test-support": "^2.0.1"
     },
     "autoload": {
         "psr-4": {
