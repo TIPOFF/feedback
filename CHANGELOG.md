@@ -22,3 +22,7 @@ All notable changes to `feedback` will be documented in this file.
 - grant permissions to roles
 - add nova resource
 - register nova resource
+
+## 2.1.0 - 2021-04-24
+
+- implement feedback interface
